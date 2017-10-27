@@ -1,6 +1,7 @@
 package ca.antonious.gfys;
 
 import android.support.v7.widget.RecyclerView;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -31,11 +32,16 @@ public class GfycatViewCell extends GenericViewCell<GfycatViewCell.GfycatViewHol
         viewHolder.titleTextView.setText(gfycat.getTitle());
         viewHolder.usernameTextView.setText(gfycat.getUserName());
         viewHolder.viewCountTextView.setText(String.valueOf(gfycat.getViews()));
+        viewHolder.tagsTextView.setText(getTagsDescription());
 
         Glide.with(viewHolder.itemView.getContext())
                 .asGif()
                 .load(getGifUrl())
                 .into(viewHolder.gifImageView);
+    }
+
+    private String getTagsDescription() {
+        return TextUtils.join(", ", getData().getTags());
     }
 
     private String getGifUrl() {
@@ -47,6 +53,7 @@ public class GfycatViewCell extends GenericViewCell<GfycatViewCell.GfycatViewHol
         public final TextView titleTextView;
         public final TextView usernameTextView;
         public final TextView viewCountTextView;
+        public final TextView tagsTextView;
 
         public GfycatViewHolder(View itemView) {
             super(itemView);
@@ -55,6 +62,7 @@ public class GfycatViewCell extends GenericViewCell<GfycatViewCell.GfycatViewHol
             titleTextView = (TextView) itemView.findViewById(R.id.title);
             usernameTextView = (TextView) itemView.findViewById(R.id.username);
             viewCountTextView = (TextView) itemView.findViewById(R.id.view_count);
+            tagsTextView = (TextView) itemView.findViewById(R.id.tags);
         }
     }
 }
