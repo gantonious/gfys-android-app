@@ -8,6 +8,7 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.gfycat.core.gfycatapi.pojo.Gfycat;
 
+import ca.antonious.viewcelladapter.annotations.BindListener;
 import ca.antonious.viewcelladapter.viewcells.GenericViewCell;
 
 /**
@@ -36,6 +37,15 @@ public class GfycatViewCell extends GenericViewCell<GfycatViewCell.GfycatViewHol
                 .asGif()
                 .load(getGifUrl())
                 .into(viewHolder.gifImageView);
+    }
+
+    public interface OnGyfcatClickedListener {
+        void onGfycatClicked(String gifLink);
+    }
+
+    @BindListener
+    public void bindOnClickListener(GfycatViewHolder viewHolder, OnGyfcatClickedListener listener) {
+        viewHolder.itemView.setOnClickListener(v -> listener.onGfycatClicked(getGifUrl()));
     }
 
     private String getGifUrl() {
