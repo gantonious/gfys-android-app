@@ -1,11 +1,17 @@
 package ca.antonious.gfys;
 
+import android.support.annotation.Nullable;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.DataSource;
+import com.bumptech.glide.load.engine.GlideException;
+import com.bumptech.glide.load.resource.gif.GifDrawable;
+import com.bumptech.glide.request.RequestListener;
+import com.bumptech.glide.request.target.Target;
 import com.gfycat.core.gfycatapi.pojo.Gfycat;
 
 import ca.antonious.viewcelladapter.viewcells.GenericViewCell;
@@ -29,9 +35,10 @@ public class GfycatViewCell extends GenericViewCell<GfycatViewCell.GfycatViewHol
     public void bindViewCell(GfycatViewHolder viewHolder) {
         Gfycat gfycat = getData();
 
+        String gfyUrl = String.format("https://thumbs.gfycat.com/%s-size_restricted.gif", gfycat.getGfyName());
         Glide.with(viewHolder.itemView.getContext())
                 .asGif()
-                .load(gfycat.getGif1mbUrl())
+                .load(gfyUrl)
                 .into(viewHolder.gifImageView);
 
         viewHolder.titleTextView.setText(gfycat.getTitle());
