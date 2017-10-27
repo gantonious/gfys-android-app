@@ -11,10 +11,18 @@ import com.gfycat.core.PublicFeedIdentifier;
 import com.gfycat.core.downloading.FeedDescription;
 import com.gfycat.core.gfycatapi.pojo.Gfycat;
 
+import ca.antonious.gfys.features.Feature;
+import ca.antonious.gfys.features.FeatureConfig;
+import ca.antonious.gfys.features.Features;
+import ca.antonious.gfys.features.IFeaturesApi;
 import ca.antonious.viewcelladapter.ViewCellAdapter;
 import ca.antonious.viewcelladapter.sections.HomogeneousSection;
+import retrofit2.Retrofit;
+import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory;
+import rx.Scheduler;
 import rx.Subscription;
 import rx.android.schedulers.AndroidSchedulers;
+import rx.schedulers.Schedulers;
 
 public class HomeActivity extends AppCompatActivity implements GfycatViewCell.OnGyfcatClickedListener {
 

@@ -1,6 +1,7 @@
 package ca.antonious.gfys.features;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -8,10 +9,20 @@ import java.util.Map;
  */
 
 public class FeatureConfig {
-    private Map<String, Boolean> features = new HashMap<>();
+    private Map<String, Boolean> featuresMap = new HashMap<>();
+
+    public static FeatureConfig fromFeatures(List<Feature> features) {
+        FeatureConfig featureConfig = new FeatureConfig();
+
+        for (Feature feature : features) {
+            featureConfig.featuresMap.put(feature.getName(), feature.isEnabled());
+        }
+
+        return featureConfig;
+    }
 
     public boolean isFeatureEnabled(String featureName) {
-        return features.containsKey(featureName) &&
-                features.get(featureName);
+        return featuresMap.containsKey(featureName) &&
+                featuresMap.get(featureName);
     }
 }
