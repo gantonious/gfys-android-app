@@ -5,7 +5,13 @@ package ca.antonious.gfys;
  */
 
 public class Features {
+    private static FeatureConfig featureConfig = new FeatureConfig();
+
+    public static void withFeatureConfig(FeatureConfig featureConfig) {
+        Features.featureConfig = featureConfig;
+    }
+
     public static boolean isFullScreenEnabled() {
-      return true;
+        return featureConfig.isFeatureEnabled("fullScreen");
     }
 }
