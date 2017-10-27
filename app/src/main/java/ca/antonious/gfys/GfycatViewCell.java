@@ -47,6 +47,7 @@ public class GfycatViewCell extends GenericViewCell<GfycatViewCell.GfycatViewHol
         public final TextView titleTextView;
         public final TextView usernameTextView;
         public final TextView viewCountTextView;
+        public final TextView tagsTextView;
 
         public GfycatViewHolder(View itemView) {
             super(itemView);
@@ -55,6 +56,8 @@ public class GfycatViewCell extends GenericViewCell<GfycatViewCell.GfycatViewHol
             titleTextView = (TextView) itemView.findViewById(R.id.title);
             usernameTextView = (TextView) itemView.findViewById(R.id.username);
             viewCountTextView = (TextView) itemView.findViewById(R.id.view_count);
+            tagsTextView = (TextView) itemView.findViewById(R.id.tags);
+            tagsTextView.setVisibility(View.GONE);
         }
     }
 }
