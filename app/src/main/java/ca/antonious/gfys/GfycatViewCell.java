@@ -45,7 +45,9 @@ public class GfycatViewCell extends GenericViewCell<GfycatViewCell.GfycatViewHol
 
     @BindListener
     public void bindOnClickListener(GfycatViewHolder viewHolder, OnGyfcatClickedListener listener) {
-        viewHolder.itemView.setOnClickListener(v -> listener.onGfycatClicked(getGifUrl()));
+        if (Features.isFullScreenEnabled()) {
+            viewHolder.itemView.setOnClickListener(v -> listener.onGfycatClicked(getGifUrl()));
+        }
     }
 
     private String getGifUrl() {
