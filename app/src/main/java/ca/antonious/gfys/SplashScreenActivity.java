@@ -34,6 +34,9 @@ public class SplashScreenActivity extends AppCompatActivity {
                     Features.withFeatureConfig(featureConfig);
                     startActivity(new Intent(this, HomeActivity.class));
                     finish();
+                }, throwable -> {
+                    startActivity(new Intent(this, HomeActivity.class));
+                    finish();
                 });
     }
 }
