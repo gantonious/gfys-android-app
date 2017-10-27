@@ -30,7 +30,7 @@ public class GfycatViewCell extends GenericViewCell<GfycatViewCell.GfycatViewHol
         Gfycat gfycat = getData();
         viewHolder.titleTextView.setText(gfycat.getTitle());
         viewHolder.usernameTextView.setText(gfycat.getUserName());
-        viewHolder.viewCountTextView.setText(gfycat.getViews());
+        viewHolder.viewCountTextView.setText(String.valueOf(gfycat.getViews()));
 
         Glide.with(viewHolder.itemView.getContext())
                 .asGif()
