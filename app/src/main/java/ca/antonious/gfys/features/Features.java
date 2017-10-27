@@ -1,4 +1,4 @@
-package ca.antonious.gfys;
+package ca.antonious.gfys.features;
 
 /**
  * Created by George on 2017-10-27.

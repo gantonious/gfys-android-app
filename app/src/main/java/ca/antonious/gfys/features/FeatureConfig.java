@@ -1,4 +1,4 @@
-package ca.antonious.gfys;
+package ca.antonious.gfys.features;
 
 import java.util.HashMap;
 import java.util.Map;

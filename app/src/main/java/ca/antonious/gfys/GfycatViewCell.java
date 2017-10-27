@@ -8,6 +8,7 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.gfycat.core.gfycatapi.pojo.Gfycat;
 
+import ca.antonious.gfys.features.Features;
 import ca.antonious.viewcelladapter.annotations.BindListener;
 import ca.antonious.viewcelladapter.viewcells.GenericViewCell;
 
