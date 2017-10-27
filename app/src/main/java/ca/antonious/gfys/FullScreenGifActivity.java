@@ -25,7 +25,7 @@ public class FullScreenGifActivity extends AppCompatActivity {
     }
 
     public static void start(Context from, String gifUrl) {
-        Intent intent = new Intent();
+        Intent intent = new Intent(from, FullScreenGifActivity.class);
         intent.putExtra(EXTRA_GIF_URL, gifUrl);
         from.startActivity(intent);
     }

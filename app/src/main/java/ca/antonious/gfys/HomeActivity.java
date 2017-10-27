@@ -16,7 +16,7 @@ import ca.antonious.viewcelladapter.sections.HomogeneousSection;
 import rx.Subscription;
 import rx.android.schedulers.AndroidSchedulers;
 
-public class HomeActivity extends AppCompatActivity {
+public class HomeActivity extends AppCompatActivity implements GfycatViewCell.OnGyfcatClickedListener {
 
     private SwipeRefreshLayout swipeRefreshLayout;
     private RecyclerView recyclerView;
@@ -75,6 +75,12 @@ public class HomeActivity extends AppCompatActivity {
 
         return ViewCellAdapter.create()
             .section(gfycatsSection)
+            .listener(this)
             .build();
+    }
+
+    @Override
+    public void onGfycatClicked(String gifLink) {
+        FullScreenGifActivity.start(this, gifLink);
     }
 }
